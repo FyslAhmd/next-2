@@ -1,5 +1,7 @@
+import Link from "next/link";
+
 const FoodCard = ({ food }) => {
-  const { title, foodImg, price, category } = food;
+  const { id, title, foodImg, price, category } = food;
 
   return (
     <div className="bg-white rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden">
@@ -24,19 +26,19 @@ const FoodCard = ({ food }) => {
 
         {/* Buttons */}
         <div className="flex gap-2 pt-2">
-          <button
-            // onClick={onAddToCart}
-            className="flex-1 bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium py-2 rounded-lg transition"
+          <Link
+          href={"/"}
+            className="flex-1 bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium py-2 rounded-lg transition text-center"
           >
             Add to Cart
-          </button>
+          </Link>
 
-          <button
-            // onClick={onViewDetails}
-            className="flex-1 border border-orange-500 text-orange-500 hover:bg-orange-50 text-sm font-medium py-2 rounded-lg transition"
+          <Link
+            href={`/foods/${id}`}
+            className="flex-1 border border-orange-500 text-orange-500 hover:bg-orange-50 text-sm font-medium rounded-lg transition py-2 text-center"
           >
             View Details
-          </button>
+          </Link>
         </div>
       </div>
     </div>
